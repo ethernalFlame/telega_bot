@@ -1,7 +1,12 @@
+package main;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import actions.AbstractTelegramAction;
+import actions.HappyBirthDay;
+import actions.HelloAction;
+import actions.HelpAction;
 import org.telegram.telegrambots.api.objects.Message;
 
 /**
@@ -21,14 +26,17 @@ public class ActionMapper {
 
     public void execute(Message m, String s) {
         AbstractTelegramAction abstractTelegramAction = actionMap.get(s);
-        prawnBot.sendMsg(m, abstractTelegramAction.getMessage());
+        if (abstractTelegramAction == null)
+            prawnBot.sendMsg(m, "Я так не умею(");
+        else
+        prawnBot.sendMsg(m, abstractTelegramAction.getMessage(m));
     }
 
     private Map<String, AbstractTelegramAction> initMap() {
         Map<String, AbstractTelegramAction> map = new HashMap<String, AbstractTelegramAction>();
-        map.put("/start", new AbstractTelegramAction("Привет"));
-
-
+        map.put("/start", new HelloAction());
+        map.put("/help", new HelpAction());
+        map.put("/happyBirthday", new HappyBirthDay(prawnBot));
         return map;
     }
 

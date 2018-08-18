@@ -1,16 +1,13 @@
 package actions;
 
+import org.telegram.telegrambots.api.objects.Message;
+
 /**
  * @author prawn
  */
-public class AbstractTelegramAction {
-    private String message;
+public abstract class AbstractTelegramAction {
 
-    public AbstractTelegramAction(String message) {
-        this.message = message;
-    }
+    public AbstractTelegramAction() {}
 
-    public String getMessage() {
-        return message;
-    }
+    public abstract String getMessage(Message m);
 }

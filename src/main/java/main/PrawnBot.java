@@ -1,3 +1,5 @@
+package main;
+
 import java.util.List;
 
 import org.telegram.telegrambots.ApiContext;
@@ -15,9 +17,9 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
  */
 public class PrawnBot extends TelegramLongPollingBot {
 
-    private static final String BOT_NAME = "PrawnBot";
+    private static final String BOT_NAME = "main.PrawnBot";
     private static final String TOKEN = "678787257:AAGfbmm_yQfg3x29YAj_OkmajUmy50LP4bk";
-
+    private ActionMapper actionMapper;
 
     public static void main(String[] args) {
         ApiContextInitializer.init(); // Инициализируем апи
@@ -35,20 +37,15 @@ public class PrawnBot extends TelegramLongPollingBot {
 
     public PrawnBot(DefaultBotOptions options) {
         super(options);
+        actionMapper = new ActionMapper(this);
     }
 
     public void onUpdateReceived(Update update) {
         System.out.println("ya tut");
-        Message msg = update.getMessage(); // Это нам понадобится
+        Message msg = update.getMessage();
         String txt = msg.getText();
-        ActionMapper actionMapper = new ActionMapper(this);
-        actionMapper.execute(msg, txt);
-//        if (txt.equals("/start")) {
-//            System.out.println("ogo");
-//            sendMsg(msg, "дарова");
-//            if (update.getMessage().getFrom().getUserName().equals("Puchek"))
-//                sendMsg(msg, "Привет, создатель");
-//        }
+
+        actionMapper.execute(msg, txt.split(" ")[0]);
     }
 
     public void onUpdatesReceived(List<Update> updates) {
