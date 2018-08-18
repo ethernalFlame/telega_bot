@@ -37,7 +37,7 @@
                     <assembleDirectory>target</assembleDirectory>
                     <programs>
                         <program>
-                            <mainClass>src.main.java.main.PrawnBot</mainClass>
+                            <mainClass>telega_bot.src.main.java.main.Main</mainClass>
                             <name>workerBot</name>
                         </program>
                     </programs>

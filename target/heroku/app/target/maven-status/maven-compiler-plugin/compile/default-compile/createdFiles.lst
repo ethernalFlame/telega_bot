@@ -5,3 +5,4 @@ actions/HelpAction.class
 main/ActionMapper.class
 actions/AbstractTelegramAction.class
 actions/HappyBirthDay.class
+main/Main.class
