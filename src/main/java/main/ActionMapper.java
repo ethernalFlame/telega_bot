@@ -7,6 +7,7 @@ import actions.AbstractTelegramAction;
 import actions.HappyBirthDay;
 import actions.HelloAction;
 import actions.HelpAction;
+import actions.KisaAction;
 import org.telegram.telegrambots.api.objects.Message;
 
 /**
@@ -37,6 +38,7 @@ public class ActionMapper {
         map.put("/start", new HelloAction());
         map.put("/help", new HelpAction());
         map.put("/happyBirthday", new HappyBirthDay(prawnBot));
+        map.put("/kisa", new KisaAction(prawnBot));
         return map;
     }
 
