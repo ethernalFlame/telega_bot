@@ -44,7 +44,6 @@ public class PrawnBot extends TelegramLongPollingBot {
         System.out.println("ya tut");
         Message msg = update.getMessage();
         String txt = msg.getText();
-
         actionMapper.execute(msg, txt.split(" ")[0]);
     }
 

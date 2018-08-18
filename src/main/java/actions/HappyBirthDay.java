@@ -16,7 +16,7 @@ public class HappyBirthDay extends AbstractTelegramAction {
     }
 
     public String getMessage(Message m) {
-        if (m.getFrom().getUserName().equals("Puchek")) {
+        if (m.getFrom().getUserName().equals("ad_notam")) {
             try {
                 SendPhoto sendPhoto = new SendPhoto();
                 sendPhoto.setPhoto("https://pp.userapi.com/c840732/v840732264/4d052/qNoN6wnnnHI.jpg");

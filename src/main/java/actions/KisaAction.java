@@ -2,6 +2,7 @@ package actions;
 
 import main.PrawnBot;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
+import org.telegram.telegrambots.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
@@ -22,7 +23,11 @@ public class KisaAction extends AbstractTelegramAction {
             SendMessage message = new SendMessage();
             message.setText(m.getText());
             message.setChatId(PUCHEK_ID);
+            SendPhoto sendPhoto = new SendPhoto();
+            sendPhoto.setPhoto("https://sun1-15.userapi.com/c540100/v540100289/42eaf/59J2lqtDnuE.jpg");
+            sendPhoto.setChatId(m.getChatId());
             try {
+                prawnBot.sendPhoto(sendPhoto);
                 prawnBot.sendMessage(message);
             } catch (TelegramApiException e) {
                 e.printStackTrace();
