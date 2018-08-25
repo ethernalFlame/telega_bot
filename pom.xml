@@ -36,7 +36,7 @@
                     <assembleDirectory>target</assembleDirectory>
                     <programs>
                         <program>
-                            <mainClass>src.main.java.main.Main</mainClass>
+                            <mainClass>main.Main</mainClass>
                             <name>workerBot</name>
                         </program>
                     </programs>
